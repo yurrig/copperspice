@@ -20,3 +20,5 @@
 /utilities/unicode/unused
 /utilities/unicode/do-*
 /utilities/unicode/error.log
+
+/build
