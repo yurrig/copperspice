@@ -200,8 +200,8 @@ QDockAreaLayoutItem &QDockAreaLayoutItem::operator = (const QDockAreaLayoutItem 
       placeHolderItem = new QPlaceHolderItem(*other.placeHolderItem);
    }
 
-   pos   = other.pos;
-   size  = other.size;
+   pos = other.pos;
+   size = other.size;
    flags = other.flags;
 
    return *this;
@@ -1240,7 +1240,7 @@ bool QDockAreaLayoutInfo::insertGap(const QList<int> &path, QLayoutItem *dockWid
          // this is not yet a nested layout - make it
 
          QDockAreaLayoutInfo *subinfo = item.subinfo;
-         QLayoutItem *widgetItem      = item.widgetItem;
+         QLayoutItem *widgetItem = item.widgetItem;
          QPlaceHolderItem *placeHolderItem = item.placeHolderItem;
 
          QRect r;
@@ -2067,7 +2067,7 @@ bool QDockAreaLayoutInfo::restoreState(QDataStream &stream, QList<QDockWidget *>
    stream >> orientation;
    o = static_cast<Qt::Orientation>(orientation);
 
-   int cnt;
+   size_t cnt;
    stream >> cnt;
 
    for (int i = 0; i < cnt; ++i) {
@@ -2539,9 +2539,9 @@ QDockAreaLayout::QDockAreaLayout(QMainWindow *win)
 
    centralWidgetItem = nullptr;
 
-   corners[Qt::TopLeftCorner]     = Qt::TopDockWidgetArea;
-   corners[Qt::TopRightCorner]    = Qt::TopDockWidgetArea;
-   corners[Qt::BottomLeftCorner]  = Qt::BottomDockWidgetArea;
+   corners[Qt::TopLeftCorner] = Qt::TopDockWidgetArea;
+   corners[Qt::TopRightCorner] = Qt::TopDockWidgetArea;
+   corners[Qt::BottomLeftCorner] = Qt::BottomDockWidgetArea;
    corners[Qt::BottomRightCorner] = Qt::BottomDockWidgetArea;
 }
 

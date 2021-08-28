@@ -1370,7 +1370,7 @@ bool QToolBarAreaLayout::restoreState(QDataStream &stream, const QList<QToolBar 
       if (pos < 0 || pos >= QInternal::DockCount) {
          return false;
       }
-      int cnt;
+      size_t cnt;
       stream >> cnt;
 
       QToolBarAreaLayoutInfo &dock = docks[pos];
