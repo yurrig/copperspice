@@ -86,6 +86,9 @@ if (MSVC)
    enable_language(ASM_MASM)
    set(target "MSVC")
 
+   set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Zi")
+   set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG")
+
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang|AppleClang)")
    execute_process(
       COMMAND ${CMAKE_CXX_COMPILER} -dumpmachine
@@ -109,8 +112,8 @@ else()
    set(target "${CMAKE_SYSTEM}")
 endif()
 
-set(CPACK_PACKAGE_NAME    ${PROJECT_NAME})
-set(CPACK_PACKAGE_VENDOR  "CopperSpice")
+set(CPACK_PACKAGE_NAME   ${PROJECT_NAME})
+set(CPACK_PACKAGE_VENDOR "CopperSpice")
 set(CPACK_PACKAGE_CONTACT "info@copperspice.com")
 
 set(CPACK_PACKAGE_VERSION_MAJOR ${BUILD_MAJOR})
