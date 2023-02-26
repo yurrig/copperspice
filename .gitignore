@@ -13,4 +13,9 @@
 /utilities/unicode/do-*
 /utilities/unicode/error.log
 
+/utilities/unicode/*.o
+/utilities/unicode/**/*.Po
+
+/utilities/harfbuzz_fonts/generate_qrc.sh
+
 /build
