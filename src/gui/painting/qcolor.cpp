@@ -1449,10 +1449,12 @@ bool QColor::operator==(const QColor &color) const
    }
 }
 
+#if __cplusplus < 202002L
 bool QColor::operator!=(const QColor &color) const
 {
    return !operator==(color);
 }
+#endif
 
 QColor::operator QVariant() const
 {

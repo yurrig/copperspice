@@ -177,7 +177,9 @@ class Q_GUI_EXPORT QColor
    QColor darker(int factor = 200) const;
 
    bool operator==(const QColor &color) const;
+#if __cplusplus < 202002L
    bool operator!=(const QColor &color) const;
+#endif
 
    operator QVariant() const;
    static bool isValidColor(const QString &name);
