@@ -3010,14 +3010,16 @@ void QStyleSheetStyle::unpolish(QApplication *app)
 }
 
 #ifndef QT_NO_TABBAR
-inline static bool verticalTabs(QTabBar::Shape shape)
+
+static inline bool verticalTabs(QTabBar::Shape shape)
 {
    return shape == QTabBar::RoundedWest
       || shape == QTabBar::RoundedEast
       || shape == QTabBar::TriangularWest
       || shape == QTabBar::TriangularEast;
 }
-#endif // QT_NO_TABBAR
+
+#endif
 
 void QStyleSheetStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex *opt, QPainter *p,
    const QWidget *w) const
