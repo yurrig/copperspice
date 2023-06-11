@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>CopperSpice</id>
+        <authors>Barbara Geller and Ansel Sermersheim</authors>
+        <version>1.8.2</version>
+        <description>A Modern Cross-platform C++ Gui Library</description>
+        <tags>native nativepackage C++ copperspice</tags>
+        <projectUrl>https://www.copperspice.com</projectUrl>
+        <repository type="git" url="https://github.com/yurrig/copperspice" commit="142aea72980f4009073cd55f610f5273e2c522a5" />
+    </metadata>
+    <files>
+        <file src="build\include\**\*"  target="build\native\include" />
+        <file src="build\lib\**\*.*"    target="build\native\lib"     />
+        <file src="build\bin\**\*"      target="build\native\bin"     />
+        <file src="CopperSpice.props"   target="build\native"         />
+    </files>
+</package>
