@@ -5,14 +5,15 @@
         <authors>Barbara Geller and Ansel Sermersheim</authors>
         <version>1.8.2</version>
         <description>A Modern Cross-platform C++ Gui Library</description>
+        <dependencies>
+          <dependency id="CopperSpice.Core" version="1.8.2"/>
+        </dependencies>
         <tags>native nativepackage C++ copperspice</tags>
         <projectUrl>https://www.copperspice.com</projectUrl>
         <repository type="git" url="https://github.com/yurrig/copperspice" commit="142aea72980f4009073cd55f610f5273e2c522a5" />
     </metadata>
     <files>
         <file src="build\bin\RelWithDebInfo\CsGui*.*"                target="build\native\bin"     />
-        <file src="build\bin\RelWithDebInfo\CsCore*.dll"             target="build\native\bin"     />
-        <file src="build\bin\RelWithDebInfo\uic.exe"                 target="build\native\bin"     />
         <file src="build\lib\RelWithDebInfo\CsGui*.lib"              target="build\native\lib"     />
         <file src="build\lib\RelWithDebInfo\CsGuiWin*.dll"           target="build\native\lib"     />
         <file src="build\lib\RelWithDebInfo\CsGuiWin*.pdb"           target="build\native\lib"     />

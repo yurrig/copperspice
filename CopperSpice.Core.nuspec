@@ -10,9 +10,9 @@
         <repository type="git" url="https://github.com/yurrig/copperspice" commit="142aea72980f4009073cd55f610f5273e2c522a5" />
     </metadata>
     <files>
-        <file src="build\include\**\*"                   target="build\native\include" />
-        <file src="build\bin\**\CsCore*.*"               target="build\native\bin"     />
-        <file src="build\lib\**\CsCore*.lib"             target="build\native\lib"     />
-        <file src="CopperSpice.Core.props"               target="build\native"         />
+        <file src="build\include\QtCore\**\*" target="build\native\include\QtCore" />
+        <file src="build\bin\**\CsCore*.*"    target="build\native\bin" />
+        <file src="build\lib\**\CsCore*.lib"  target="build\native\lib" />
+        <file src="CopperSpice.Core.props"    target="build\native" />
     </files>
 </package>

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
   <PropertyGroup>
-    <CopperSpiceGuiBinPath Condition="$(Configuration) == 'Debug'">$(MSBuildThisFileDirectory)bin\$(Configuration)</CopperSpiceGuiBinPath>
-    <CopperSpiceGuiLibPath Condition="$(Configuration) == 'Debug'">$(MSBuildThisFileDirectory)lib\$(Configuration)</CopperSpiceGuiLibPath>
-    <CopperSpiceGuiBinPath Condition="$(Configuration) == 'Release'">$(MSBuildThisFileDirectory)bin\RelWithDebInfo</CopperSpiceGuiBinPath>
-    <CopperSpiceGuiLibPath Condition="$(Configuration) == 'Release'">$(MSBuildThisFileDirectory)lib\RelWithDebInfo</CopperSpiceGuiLibPath>
+    <CopperSpiceGuiIncPath>$(MSBuildThisFileDirectory)include</CopperSpiceGuiIncPath>
+    <CopperSpiceGuiBinPath>$(MSBuildThisFileDirectory)bin</CopperSpiceGuiBinPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>COPPERSPICE_GUI_PACKAGE_PATH=R"($(MSBuildThisFileDirectory))";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(CopperSpiceGuiIncPath);$(CopperSpiceGuiIncPath)\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <Link>
       <AdditionalDependencies>CsGui1.8.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(CopperSpiceGuiLibPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <Target Name="CopperSpiceGui_CopyFiles" BeforeTargets="Build">
-    <Exec Command="ROBOCOPY &quot;$(CopperSpiceGuiBinPath)&quot; &quot;$(OutDir).&quot; * /S >NUL" IgnoreExitCode="true"/>
-    <Exec Command="ROBOCOPY &quot;$(CopperSpiceGuiLibPath)&quot; &quot;$(OutDir)platforms&quot; CsGuiWin*.dll CsGuiWin*.pdb CsPrinterDriverWin*.dll CsPrinterDriverWin*.pdb CsMultimedia*.dll CsMultimedia*.pdb /S >NUL" IgnoreExitCode="true"/>
-  </Target>
 </Project>

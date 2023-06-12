@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
-  <PropertyGroup>
-    <CopperSpiceGuiBinPath Condition="$(Configuration) == 'Release'">$(MSBuildThisFileDirectory)bin</CopperSpiceGuiBinPath>
-    <CopperSpiceGuiLibPath Condition="$(Configuration) == 'Release'">$(MSBuildThisFileDirectory)lib</CopperSpiceGuiLibPath>
+  <PropertyGroup Condition="$(Configuration) == 'Release'">
+    <CopperSpiceGuiRelBinPath>$(MSBuildThisFileDirectory)bin</CopperSpiceGuiRelBinPath>
+    <CopperSpiceGuiLibPath>$(MSBuildThisFileDirectory)lib</CopperSpiceGuiLibPath>
   </PropertyGroup>
-  <ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="$(Configuration) == 'Release'">
     <Link>
-      <AdditionalDependencies Condition="$(Configuration) == 'Release'">CsGui1.8.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories Condition="$(Configuration) == 'Release'">$(CopperSpiceGuiLibPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(CopperSpiceGuiLibPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Target Condition="$(Configuration) == 'Release'" Name="CopperSpiceGui_CopyFiles" BeforeTargets="Build">
-    <Exec Command="ROBOCOPY &quot;$(CopperSpiceGuiBinPath)&quot; &quot;$(OutDir).&quot; CsGui*.* /S >NUL" IgnoreExitCode="true"/>
+    <Exec Command="ROBOCOPY &quot;$(CopperSpiceGuiRelBinPath)&quot; &quot;$(OutDir).&quot; CsGui*.* /S >NUL" IgnoreExitCode="true"/>
     <Exec Command="ROBOCOPY &quot;$(CopperSpiceGuiLibPath)&quot; &quot;$(OutDir)platforms&quot; CsGuiWin*.dll CsGuiWin*.pdb CsPrinterDriverWin*.dll CsPrinterDriverWin*.pdb CsMultimedia*.dll CsMultimedia*.pdb /S >NUL" IgnoreExitCode="true"/>
   </Target>
 </Project>

@@ -10,7 +10,7 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <PreprocessorDefinitions>COPPERSPICE_CORE_PACKAGE_PATH=R"($(MSBuildThisFileDirectory))";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(CopperSpiceCoreIncPath);$(CopperSpiceCoreIncPath)\QtCore;$(CopperSpiceCoreIncPath)\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CopperSpiceCoreIncPath);$(CopperSpiceCoreIncPath)\QtCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>CsCore1.8.lib;%(AdditionalDependencies)</AdditionalDependencies>
