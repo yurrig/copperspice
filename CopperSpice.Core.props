@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <CopperSpiceCoreBinPath Condition="$(Configuration) == 'Debug'">$(MSBuildThisFileDirectory)bin\$(Configuration)</CopperSpiceCoreBinPath>
+    <CopperSpiceCoreLibPath Condition="$(Configuration) == 'Debug'">$(MSBuildThisFileDirectory)lib\$(Configuration)</CopperSpiceCoreLibPath>
+    <CopperSpiceCoreBinPath Condition="$(Configuration) == 'Release'">$(MSBuildThisFileDirectory)bin\RelWithDebInfo</CopperSpiceCoreBinPath>
+    <CopperSpiceCoreLibPath Condition="$(Configuration) == 'Release'">$(MSBuildThisFileDirectory)lib\RelWithDebInfo</CopperSpiceCoreLibPath>
+    <CopperSpiceCoreIncPath>$(MSBuildThisFileDirectory)include</CopperSpiceCoreIncPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>COPPERSPICE_CORE_PACKAGE_PATH=R"($(MSBuildThisFileDirectory))";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(CopperSpiceCoreIncPath);$(CopperSpiceCoreIncPath)\QtCore;$(CopperSpiceCoreIncPath)\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>CsCore1.8.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(CopperSpiceCoreLibPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Target Name="CopperSpiceCore_CopyFiles" BeforeTargets="Build">
+    <Exec Command="ROBOCOPY &quot;$(CopperSpiceCoreBinPath)&quot; &quot;$(OutDir).&quot; * /S >NUL" IgnoreExitCode="true"/>
+  </Target>
+</Project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>CopperSpice.Gui</id>
+        <authors>Barbara Geller and Ansel Sermersheim</authors>
+        <version>1.8.2</version>
+        <description>A Modern Cross-platform C++ Gui Library</description>
+        <tags>native nativepackage C++ copperspice</tags>
+        <projectUrl>https://www.copperspice.com</projectUrl>
+        <repository type="git" url="https://github.com/yurrig/copperspice" commit="142aea72980f4009073cd55f610f5273e2c522a5" />
+    </metadata>
+    <files>
+        <file src="build\bin\**\CsGui*.*"                target="build\native\bin"     />
+        <file src="build\bin\**\CsCore*.dll"             target="build\native\bin"     />
+        <file src="build\bin\**\uic.exe"                 target="build\native\bin"     />
+        <file src="build\lib\**\CsGui*.lib"              target="build\native\lib"     />
+        <file src="build\lib\**\CsGuiWin*.dll"           target="build\native\lib"     />
+        <file src="build\lib\**\CsGuiWin*.pdb"           target="build\native\lib"     />
+        <file src="build\lib\**\CsPrinterDriverWin*.dll" target="build\native\lib"     />
+        <file src="build\lib\**\CsPrinterDriverWin*.pdb" target="build\native\lib"     />
+        <file src="build\lib\**\CsMultimedia*.dll"       target="build\native\lib"     />
+        <file src="build\lib\**\CsMultimedia*.pdb"       target="build\native\lib"     />
+        <file src="CopperSpice.Gui.props"                target="build\native"         />
+    </files>
+</package>
