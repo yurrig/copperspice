@@ -13,7 +13,8 @@
         <repository type="git" url="https://github.com/yurrig/copperspice" commit="142aea72980f4009073cd55f610f5273e2c522a5" />
     </metadata>
     <files>
-        <file src="build\bin\RelWithDebInfo\CsGui*.*"                target="build\native\bin"     />
+        <file src="build\bin\RelWithDebInfo\CsGui*.dll"              target="build\native\bin"     />
+        <file src="build\bin\RelWithDebInfo\CsGui*.pdb"              target="build\native\bin"     />
         <file src="build\lib\RelWithDebInfo\CsGui*.lib"              target="build\native\lib"     />
         <file src="build\lib\RelWithDebInfo\CsGuiWin*.dll"           target="build\native\lib"     />
         <file src="build\lib\RelWithDebInfo\CsGuiWin*.pdb"           target="build\native\lib"     />
@@ -21,6 +22,6 @@
         <file src="build\lib\RelWithDebInfo\CsPrinterDriverWin*.pdb" target="build\native\lib"     />
         <file src="build\lib\RelWithDebInfo\CsMultimedia*.dll"       target="build\native\lib"     />
         <file src="build\lib\RelWithDebInfo\CsMultimedia*.pdb"       target="build\native\lib"     />
-        <file src="CopperSpice.Gui.Rel.props"                        target="build\native"         />
+        <file src="CopperSpice.Gui.Rel.targets"                      target="build\native"         />
     </files>
 </package>

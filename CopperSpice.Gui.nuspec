@@ -17,6 +17,6 @@
         <file src="build\include\QtGui\**\*"             target="build\native\include\QtGui" />
         <file src="build\bin\RelWithDebInfo\CsCore*.dll" target="build\native\bin" />
         <file src="build\bin\RelWithDebInfo\uic.exe"     target="build\native\bin" />
-        <file src="CopperSpice.Gui.props"                target="build\native" />
+        <file src="CopperSpice.Gui.targets"              target="build\native" />
     </files>
 </package>

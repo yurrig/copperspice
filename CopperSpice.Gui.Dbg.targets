@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
-  <PropertyGroup Condition="$(Configuration) == 'Debug'">
+  <PropertyGroup Condition="$(ConfigurationPurpose) == 'Debug'">
     <CopperSpiceGuiDbgBinPath>$(MSBuildThisFileDirectory)bin</CopperSpiceGuiDbgBinPath>
     <CopperSpiceGuiLibPath>$(MSBuildThisFileDirectory)lib</CopperSpiceGuiLibPath>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="$(Configuration) == 'Debug'">
+  <ItemDefinitionGroup Condition="$(ConfigurationPurpose) == 'Debug'">
     <Link>
       <AdditionalLibraryDirectories>$(CopperSpiceGuiLibPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <Target Condition="$(Configuration) == 'Debug'" Name="CopperSpiceGuiDbg_CopyFiles" BeforeTargets="Build">
+  <Target Condition="$(ConfigurationPurpose) == 'Debug'" Name="CopperSpiceGuiDbg_CopyFiles" BeforeTargets="Build">
     <Exec Command="ROBOCOPY &quot;$(CopperSpiceGuiDbgBinPath)&quot; &quot;$(OutDir).&quot; CsGui*.* /S >NUL" IgnoreExitCode="true"/>
     <Exec Command="ROBOCOPY &quot;$(CopperSpiceGuiLibPath)&quot; &quot;$(OutDir)platforms&quot; CsGuiWin*.dll CsGuiWin*.pdb CsPrinterDriverWin*.dll CsPrinterDriverWin*.pdb CsMultimedia*.dll CsMultimedia*.pdb /S >NUL" IgnoreExitCode="true"/>
   </Target>
