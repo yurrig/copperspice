@@ -2848,7 +2848,8 @@ template <typename E, typename A>
 typename CsBasicString<E, A>::iterator CsBasicString<E, A>::insert(const_iterator posStart, const CsBasicString &str)
 {
    const_iterator iter = posStart;
-   int count = 0;
+   // silence clang warning about unused count
+   // int count = 0;
 
    for (auto c : str) {
       str_iter iter_tmp = E::insert(m_string, iter.codePointBegin(), c);
@@ -2856,7 +2857,7 @@ typename CsBasicString<E, A>::iterator CsBasicString<E, A>::insert(const_iterato
       iter = CsStringIterator<E, A>(iter_tmp);
       ++iter;
 
-      ++count;
+      //++count;
    }
 
    return (iter);
