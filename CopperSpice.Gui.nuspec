@@ -18,5 +18,6 @@
         <file src="build\bin\RelWithDebInfo\CsCore*.dll" target="build\native\bin" />
         <file src="build\bin\RelWithDebInfo\uic.exe"     target="build\native\bin" />
         <file src="CopperSpice.Gui.targets"              target="build\native" />
+        <file src="CopperSpice.Gui.xml"                  target="build\native" />
     </files>
 </package>
