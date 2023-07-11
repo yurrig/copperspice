@@ -6,4 +6,3 @@
   <ContentType Name="CsUic" DisplayName="CopperSpice UIC" ItemType="CsUic" />
   <FileExtension Name="*.ui" ContentType="CsUic" />
 </ProjectSchemaDefinitions>
- 

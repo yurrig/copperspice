@@ -14,14 +14,16 @@
     </Link>
   </ItemDefinitionGroup>
 
+  <PropertyGroup>
+    <CleanDependsOn>$(CleanDependsOn);CleanUic</CleanDependsOn>
+  </PropertyGroup>
   <ItemGroup>
     <PropertyPageSchema Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
     <AvailableItemName Include="CsUic">
       <Targets>CompileUic</Targets>
     </AvailableItemName>
   </ItemGroup>
-  <Target Name="CompileUic"
-    AfterTargets="PrepareForBuild">
+  <Target Name="CompileUic" AfterTargets="PrepareForBuild">
     <ItemGroup>
       <CsUic>
         <Command>$(CopperSpiceGuiBinPath)\uic.exe %(CsUic.FullPath) -o &quot;$(IntDir)uic\ui_%(CsUic.Filename).h&quot;</Command>
@@ -33,5 +35,12 @@
     </ItemGroup>
     <CustomBuild Sources="@(CsUic)" />
     <Message Importance="High" Text="Compiling %(CsUic.Identity)" />
+  </Target>
+  <Target Name="CleanUic">
+    <Message Text="Cleaning compiled UIC files ..." Importance="high" />
+    <ItemGroup>
+      <_FilesToDelete Include="$(IntDir)uic\ui_*.h"/>
+    </ItemGroup>
+    <Delete Files="@(_FilesToDelete)"/>
   </Target>
 </Project>
