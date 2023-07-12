@@ -16,6 +16,7 @@
 
   <PropertyGroup>
     <CleanDependsOn>$(CleanDependsOn);CleanUic</CleanDependsOn>
+    <UicOutputDirectory>$(IntDir)uic</UicOutputDirectory>
   </PropertyGroup>
   <ItemGroup>
     <PropertyPageSchema Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
@@ -23,11 +24,14 @@
       <Targets>CompileUic</Targets>
     </AvailableItemName>
   </ItemGroup>
-  <Target Name="CompileUic" AfterTargets="PrepareForBuild">
+  <Target Name="CreateUicDirectory" AfterTargets="PrepareForBuild">
+    <MakeDir Directories="$(UicOutputDirectory)" />
+  </Target>
+  <Target Name="CompileUic" AfterTargets="CreateUicDirectory">
     <ItemGroup>
       <CsUic>
         <Command>$(CopperSpiceGuiBinPath)\uic.exe %(CsUic.FullPath) -o &quot;$(IntDir)uic\ui_%(CsUic.Filename).h&quot;</Command>
-        <Outputs>$(IntDir)uic\ui_%(CsUic.Filename).h</Outputs>
+        <Outputs>$(UicOutputDirectory)\ui_%(CsUic.Filename).h</Outputs>
       </CsUic>
     </ItemGroup>
     <ItemGroup Condition="'$(SelectedFiles)' != ''">
